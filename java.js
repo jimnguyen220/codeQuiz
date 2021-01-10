@@ -1,7 +1,9 @@
-// write code for timer
+// Global Assignments
 var timeEl = document.querySelector("#timer");
+var startButton = document.querySelector("#quiz-start");
 
-var secondsLeft = 76;
+var secondsLeft = 75;
+
 
 function setTime () {
     var timerInterval = setInterval(function() {
@@ -14,11 +16,17 @@ function setTime () {
         }
 
     }, 1000);
-}
+};
 
-//move this within function to start quiz
-setTime();
+
 
 
 // write code for quiz
 
+
+function startGame() {
+    startButton.disabled = true;
+    setTime();
+};
+
+startButton.addEventListener("click", startGame);
