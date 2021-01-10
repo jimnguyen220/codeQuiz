@@ -10,6 +10,8 @@ Link to webpage: https://jimnguyen220.github.io/codeQuiz/
 Link to github repository: https://github.com/jimnguyen220/codeQuiz
 
 Additional Resources:
+https://www.w3schools.com
+
 https://www.sitepoint.com/simple-javascript-quiz/
 webpage written by Yaphi Berhanu and James Hibbard on "How to Make a Simple JavaScript Quiz"
 
