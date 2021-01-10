@@ -6,19 +6,18 @@ var questionBox = document.querySelector("#question-box")
 
 var secondsLeft = 75;
 
-var questionOne = {
+var quizQuestions = {
     question: "What color is the sky?",
     answers: {
-        answersOne: "blue",
-        answersTwo: "green",
-        answersThree: "red",
-        answersFour: "yellow",
+        a: "blue",
+        b: "green",
+        c: "red",
+        d: "yellow",
     },
-    correctAnswer: "blue"
+    correctAnswer: "a"
 };
 
-
-console.log(questionOne.answers.answersOne);
+console.log(quizQuestions)
 
 function setTime () {
     var timerInterval = setInterval(function() {
@@ -42,6 +41,7 @@ function setTime () {
 function startGame() {
     startButton.disabled = true;
     setTime();
+    quizBox();
 };
 
 function quizBox() {
@@ -51,4 +51,3 @@ function quizBox() {
 // this section for interaction with index.html
 startButton.addEventListener("click", startGame);
 
-questionBox.textContent = questionOne.question
