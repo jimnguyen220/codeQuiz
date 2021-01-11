@@ -17,6 +17,7 @@ answerButtonEl4.setAttribute("class", "btn btn-primary");
 var secondsLeft = 75;
 var score = 0;
 
+
 var quizQuestions = [
     {
     question: "What does the alert() function do in Javascript?", 
@@ -24,7 +25,7 @@ var quizQuestions = [
     answer2: "alerts a noise to the user",
     answer3: "calls the cops",
     answer4: "changes the colors on the page",
-    correctAnswer: "creates a popup on the page"
+    correctAnswer: 1
     },
     {
     question: "What does URL stand for?", 
@@ -32,11 +33,11 @@ var quizQuestions = [
     answer2: "Uniform Resource Locator",
     answer3: "Urbanization of Reformed Librarians",
     answer4: "United Regional Lutherans",
-    correctAnswer: "Uniform Resource Locator"
+    correctAnswer: 2
     },
 ];
 
-
+console.log(quizQuestions);
 // function codes
 function setTime () {
     var timerInterval = setInterval(function() {
@@ -64,18 +65,13 @@ function startGame() {
     };
     clearText();
     setTime();
-    quizBox();
+    quizBox(0);
 };
 
-function quizBox() {
+function quizBox(index) {
 
-    for (i = 0; i < quizQuestions.length; i++) {
-        var currentQuestion = quizQuestions[i];
-            //runs through each question
-         
-
-
-
+        var currentQuestion = quizQuestions[index];
+     
         questionContent.textContent = currentQuestion.question;
         answerButtonEl1.textContent = currentQuestion.answer1
         answerButtonEl2.textContent = currentQuestion.answer2
@@ -88,10 +84,11 @@ function quizBox() {
         questionBoxEl.appendChild(answerButtonEl2);
         questionBoxEl.appendChild(answerButtonEl3);
         questionBoxEl.appendChild(answerButtonEl4);
+
+       
     };
 
 
-};
 
 
 // this section for interaction with index.html

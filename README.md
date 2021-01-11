@@ -10,6 +10,7 @@ Link to webpage: https://jimnguyen220.github.io/codeQuiz/
 Link to github repository: https://github.com/jimnguyen220/codeQuiz
 
 Additional Resources:
+
 https://www.w3schools.com
 
 https://www.sitepoint.com/simple-javascript-quiz/
@@ -17,3 +18,6 @@ webpage written by Yaphi Berhanu and James Hibbard on "How to Make a Simple Java
 
 https://www.youtube.com/watch?v=riDzcEQbX6k&t=1330s
 walkthrough from 'Web Dev Simplified' on how he would build a quiz app with Javascript 
+
+https://www.youtube.com/watch?v=zZdQGs62cR8
+walkthrough from James Q Quick where he builds a quiz using html, css and Java
