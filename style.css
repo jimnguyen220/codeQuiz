@@ -1,5 +1,12 @@
 #quiz {
     margin-top: 40px;
-    text-align: center;
 }
 
+.btn {
+    border: 1px solid black;
+    margin: 10px;
+}
+
+section {
+    font-size: 40px;
+}

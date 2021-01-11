@@ -1,112 +1,38 @@
 // Global Assignments
 var timeEl = document.querySelector("#timer");
-var startButton = document.querySelector("#quiz-start");
-var nextButton = document.querySelector("#next-button")
-var questionBox = document.querySelector("#question-box");
-var resultsBox = document.querySelector("#results-box");
+var startButtonEl = document.querySelector("#quiz-start");
+var questionBoxEl = document.querySelector("#question-box");
+var resultsBoxEl = document.querySelector("#results-box");
+var questionContent = document.createElement("section")
+var answerButtonEl1 = document.createElement("button")
+var answerButtonEl2 = document.createElement("button")
+var answerButtonEl3 = document.createElement("button")
+var answerButtonEl4 = document.createElement("button")
+
+answerButtonEl1.setAttribute("class", "btn btn-primary");
+answerButtonEl2.setAttribute("class", "btn btn-primary");
+answerButtonEl3.setAttribute("class", "btn btn-primary");
+answerButtonEl4.setAttribute("class", "btn btn-primary");
 
 var secondsLeft = 75;
+var score = 0;
 
 var quizQuestions = [
     {
-    question: "What does the alert() function do in Javascript?",
-    answers: {
-        a: "creates a popup on the page",
-        b: "alerts a noise to the user",
-        c: "calls the cops",
-        d: "changes the colors on the page",
-    },
-    correctAnswer: "a"
+    question: "What does the alert() function do in Javascript?", 
+    answer1: "creates a popup on the page",
+    answer2: "alerts a noise to the user",
+    answer3: "calls the cops",
+    answer4: "changes the colors on the page",
+    correctAnswer: "creates a popup on the page"
     },
     {
-        question: "What does URL stand for",
-        answers: {
-            a: "Unicorns Rhinos and Lions",
-            b: "Understanding Red Letters",
-            c: "Uniform Resource Locator",
-            d: "Urbanization of Reformed Librarians",
-        },
-        correctAnswer: "c"
-    },
-    {
-        question: "What is the maximum number of values you can get from a confirm statement in Javascript",
-        answers: {
-            a: "One",
-            b: "Two",
-            c: "Three",
-            d: "Four",
-        },
-        correctAnswer: "b"
-    },
-    {
-        question: "What color is the sky?1",
-        answers: {
-            a: "blue",
-            b: "green",
-            c: "red",
-            d: "yellow",
-        },
-        correctAnswer: "a"
-    },
-    {
-        question: "What color is the sky?2",
-        answers: {
-            a: "blue",
-            b: "green",
-            c: "red",
-            d: "yellow",
-        },
-        correctAnswer: "a"
-    },
-    {
-        question: "What color is the sky?3",
-        answers: {
-            a: "blue",
-            b: "green",
-            c: "red",
-            d: "yellow",
-        },
-        correctAnswer: "a"
-    },
-    {
-        question: "What color is the sky?4",
-        answers: {
-            a: "blue",
-            b: "green",
-            c: "red",
-            d: "yellow",
-        },
-        correctAnswer: "a"
-    },
-    {
-        question: "What color is the sky?5",
-        answers: {
-            a: "blue",
-            b: "green",
-            c: "red",
-            d: "yellow",
-        },
-        correctAnswer: "a"
-    },
-    {
-        question: "What color is the sky?6",
-        answers: {
-            a: "yellow",
-            b: "green",
-            c: "red",
-            d: "blue",
-        },
-        correctAnswer: "d"
-    },
-    {
-        question: "What color is the sky?7",
-        answers: {
-            a: "red",
-            b: "green",
-            c: "blue",
-            d: "yellow",
-        },
-        correctAnswer: "c"
+    question: "What does URL stand for?", 
+    answer1: "Unicorns, Rhinos and Lions",
+    answer2: "Uniform Resource Locator",
+    answer3: "Urbanization of Reformed Librarians",
+    answer4: "United Regional Lutherans",
+    correctAnswer: "Uniform Resource Locator"
     },
 ];
 
@@ -127,27 +53,47 @@ function setTime () {
 
 
 function startGame() {
-    if (startButton.getElementsByClassName.display === "none") {
-        startButton.getElementsByClassName.display = "block";
+    if (startButtonEl.getElementsByClassName.display === "none") {
+        startButtonEl.getElementsByClassName.display = "block";
     }
     else {
-        startButton.style.display = "none";
+        startButtonEl.style.display = "none";
     };
+    function clearText() {
+        questionBoxEl.textContent = " ";
+    };
+    clearText();
     setTime();
     quizBox();
 };
 
 function quizBox() {
 
-    for (i = 0; i <quizQuestions.length; i++) {
+    for (i = 0; i < quizQuestions.length; i++) {
         var currentQuestion = quizQuestions[i];
-        console.log(currentQuestion);
+            //runs through each question
+         
+
+
+
+        questionContent.textContent = currentQuestion.question;
+        answerButtonEl1.textContent = currentQuestion.answer1
+        answerButtonEl2.textContent = currentQuestion.answer2
+        answerButtonEl3.textContent = currentQuestion.answer3
+        answerButtonEl4.textContent = currentQuestion.answer4
+
+        questionBoxEl.appendChild(questionContent);
+
+        questionBoxEl.appendChild(answerButtonEl1);
+        questionBoxEl.appendChild(answerButtonEl2);
+        questionBoxEl.appendChild(answerButtonEl3);
+        questionBoxEl.appendChild(answerButtonEl4);
     };
+
 
 };
 
 
 // this section for interaction with index.html
-startButton.addEventListener("click", startGame);
+startButtonEl.addEventListener("click", startGame);
 
-quizBox();
