@@ -39,8 +39,32 @@ var quizQuestions = [
         answer1: "Unicorns, Rhinos and Lions",
         answer2: "Uniform Resource Locator",
         answer3: "Urbanization of Reformed Librarians",
-        answer4: "United Regional Lutherans",
+        answer4: "Umbrellas, Raindrops and Leprechauns",
         correctAnswer: 2,
+    },
+    {
+        question: "What does an <h1> element do?",
+        answer1: "Refreshes the page",
+        answer2: "Highlights the item",
+        answer3: "Indicates the main heading on a page",
+        answer4: "Creates a link to another page",
+        correctAnswer: 3,
+    },
+    {
+        question: "What does CSS do for a webpage?",
+        answer1: "CSS adds style and further customizes your page",
+        answer2: "Resets the values on your page",
+        answer3: "Creates a list",
+        answer4: "Placeholder for information",
+        correctAnswer: 1,
+    },
+    {
+        question: "What does a <p> element do?",
+        answer1: "adds color to a page",
+        answer2: "The <p> element does nothing",
+        answer3: "Indicates which page you are on",
+        answer4: "Creates a new paragraph",
+        correctAnswer: 4,
     },
 ];
 
@@ -95,6 +119,7 @@ function quizBox() {
 
     var buttonEl = document.getElementsByClassName("questitonBtn");
 
+    
     for (var i = 0; i < buttonEl.length; i++) {
 
         buttonEl[i].addEventListener('click', function () {
