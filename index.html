@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Quiz</title>
+    <title>Coding Quiz</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
@@ -16,11 +16,18 @@
 
             <div class="col-sm-12 col-md-6 col-lg-8" id="quiz">
                 <div id="question-box">
-                    <h1>Click the 'Start Quiz' button to begin.</h1>
-                    Try to finish the quiz before the timer runs out. If you get an answer wrong, 10 seconds will be subtracted from your time.  The more time you have remaining, the higher your score.
+                    <section>
+                        <h1>Click the 'Start Quiz' button to begin</h1><br>
+                        <button type="button" class="btn btn-primary" id="quiz-start" >Start Quiz</button><br>
+                        Try to finish the quiz before the timer runs out. If you get an answer wrong, 10 seconds will be subtracted from your time.  The more time you have remaining, the higher your score.
+                    </section>
+                    <button class="btn btn-primary questionBtn" data-set=1 id=button1>Answer Button 1</button>
+                    <button class="btn btn-primary questionBtn" data-set=2 id=button2>Answer Button 2</button>
+                    <button class="btn btn-primary questionBtn" data-set=3 id=button3>Answer Button 3</button>
+                    <button class="btn btn-primary questionBtn" data-set=4 id=button4>Answer Button 4</button>
                 </div>
-                <div id="results-box"></div>
-                <button type="button" class="btn btn-primary" id="quiz-start" >Start Quiz</button>
+
+
             </div>
 
             <div class="col-sm-12 col-md-3 col-lg-2" id="timer">Countdown Timer</div>

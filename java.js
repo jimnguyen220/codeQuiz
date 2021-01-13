@@ -1,26 +1,18 @@
 // Global Assignments
 var timeEl = document.querySelector("#timer");
 var startButtonEl = document.querySelector("#quiz-start");
-var questionBoxEl = document.querySelector("#question-box");
-var resultsBoxEl = document.querySelector("#results-box");
-var questionContent = document.createElement("section")
-var answerButtonEl1 = document.createElement("button")
-var answerButtonEl2 = document.createElement("button")
-var answerButtonEl3 = document.createElement("button")
-var answerButtonEl4 = document.createElement("button")
+var questionBoxEl = document.querySelector("#question-box")
+var questionContent = document.querySelector("section");
+var answerButton1 = document.querySelector("#button1");
+var answerButton2 = document.querySelector("#button2");
+var answerButton3 = document.querySelector("#button3");
+var answerButton4 = document.querySelector("#button4");
+var buttonEl = document.getElementsByClassName("questionBtn");
 
 
-answerButtonEl1.setAttribute("class", "btn btn-primary questitonBtn");
-answerButtonEl1.setAttribute("data-set", 1);
-answerButtonEl2.setAttribute("class", "btn btn-primary questitonBtn");
-answerButtonEl2.setAttribute("data-set", 2);
-answerButtonEl3.setAttribute("class", "btn btn-primary questitonBtn");
-answerButtonEl3.setAttribute("data-set", 3);
-answerButtonEl4.setAttribute("class", "btn btn-primary questitonBtn");
-answerButtonEl4.setAttribute("data-set", 4);
+var secondsLeft = 45;
+var currentQuestion = 0;
 
-var secondsLeft = 75;
-var index = 0;
 
 
 
@@ -69,7 +61,7 @@ var quizQuestions = [
 ];
 
 console.log(quizQuestions);
-// function codes
+
 function setTime() {
     var timerInterval = setInterval(function () {
         secondsLeft--;
@@ -91,66 +83,28 @@ function startGame() {
     else {
         startButtonEl.style.display = "none";
     };
-    function clearText() {
-        questionBoxEl.textContent = " ";
-    };
-    clearText();
     setTime();
-    quizBox(0);
-};
-
-function quizBox() {
-
-
-    var currentQuestion = quizQuestions[index];
-
-    questionContent.textContent = currentQuestion.question;
-    answerButtonEl1.textContent = currentQuestion.answer1
-    answerButtonEl2.textContent = currentQuestion.answer2
-    answerButtonEl3.textContent = currentQuestion.answer3
-    answerButtonEl4.textContent = currentQuestion.answer4
-
-    questionBoxEl.appendChild(questionContent);
-
-    questionBoxEl.appendChild(answerButtonEl1);
-    questionBoxEl.appendChild(answerButtonEl2);
-    questionBoxEl.appendChild(answerButtonEl3);
-    questionBoxEl.appendChild(answerButtonEl4);
-
-    var buttonEl = document.getElementsByClassName("questitonBtn");
-
-    
-    for (var i = 0; i < buttonEl.length; i++) {
-
-        buttonEl[i].addEventListener('click', function () {
-            var userChoice = this.getAttribute('data-set');
-         
-            userChoice = parseInt(userChoice);
-            index++;
-            if (index === quizQuestions.length+1){
-               alert("out of questions");
-            } else {
-                if (userChoice === currentQuestion.correctAnswer) {
-                    alert('correct');
-                    quizBox();
-                }  else {
-                    alert('incorrect');
-                    secondsLeft = secondsLeft - 10;
-                    quizBox();
-                }
-            }
-            
-            
-        });
-    }
-
-
+    quizGame();
 
 };
 
 
+
+function quizGame () {
+    var quizArray = quizQuestions[currentQuestion];
+    questionContent.textContent = quizArray.question;
+    answerButton1.textContent = quizArray.answer1;
+    answerButton2.textContent = quizArray.answer2;
+    answerButton3.textContent = quizArray.answer3;
+    answerButton4.textContent = quizArray.answer4;
+
+    nextQuestion();
+};
+
+function nextQuestion() {
+
+};
 
 
 // this section for interaction with index.html
 startButtonEl.addEventListener("click", startGame);
-
