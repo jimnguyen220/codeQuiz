@@ -7,7 +7,7 @@ var answerButton1 = document.querySelector("#button1");
 var answerButton2 = document.querySelector("#button2");
 var answerButton3 = document.querySelector("#button3");
 var answerButton4 = document.querySelector("#button4");
-var buttonEl = document.getElementsByClassName("questionBtn");
+
 
 
 var secondsLeft = 45;
@@ -91,6 +91,7 @@ function startGame() {
 
 
 function quizGame () {
+    console.log("This is the question I am on " + currentQuestion);
     var quizArray = quizQuestions[currentQuestion];
     questionContent.textContent = quizArray.question;
     answerButton1.textContent = quizArray.answer1;
@@ -101,7 +102,27 @@ function quizGame () {
     nextQuestion();
 };
 
+
 function nextQuestion() {
+    
+    //when user selects button element, I want to find which button was selected to determine if i have the correct answer and call quizGame function again
+    answerButton1.addEventListener("click", function(){
+        currentQuestion++;
+        quizGame();
+    })
+    answerButton2.addEventListener("click", function(){
+        currentQuestion++;
+        quizGame();
+    })
+    answerButton3.addEventListener("click", function(){
+        currentQuestion++;
+        quizGame();
+    })
+    answerButton4.addEventListener("click", function(){
+        currentQuestion++;
+        quizGame();
+    })
+    
 
 };
 
