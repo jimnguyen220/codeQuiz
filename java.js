@@ -111,33 +111,33 @@ function pullData() {
     for (var i = 0; i < buttonEl.length; i++) {
         buttonEl[i].addEventListener('click', checkAnswer);
     };
+};
         // console.log("this is currentQuestion before checkAnswer function " + currentQuestion);
 
-    function checkAnswer() {
-        var userChoice = this.getAttribute('data-set');
-        userChoice = parseInt(userChoice);
-        // console.log("this is userChoice " + userChoice);
-        // console.log("this is  the correct answer " + quizQuestions[currentQuestion].correctAnswer);
+function checkAnswer() {
+    var userChoice = this.getAttribute('data-set');
+    userChoice = parseInt(userChoice);
+    console.log("this is userChoice " + userChoice);
+    console.log("this is  the correct answer " + quizQuestions[currentQuestion].correctAnswer);
 
-        // console.log("this is currentQuestion before if/else " + currentQuestion);
+    // console.log("this is currentQuestion before if/else " + currentQuestion);
 
-        if (userChoice === quizQuestions[currentQuestion].correctAnswer){
-            currentQuestion++;
-        }
-        else {
-            secondsLeft = secondsLeft - 10;
-            currentQuestion++;
-        }
-        console.log("this is currentQuestion after if/else " + currentQuestion);
-        quizGame();
-        
-
-
-    };
-
+    if (userChoice === quizQuestions[currentQuestion].correctAnswer){
+        currentQuestion++;
+    }
+    else {
+        secondsLeft = secondsLeft - 10;
+        currentQuestion++;
+    }
+    console.log("this is currentQuestion after if/else " + currentQuestion);
+    quizGame();
+    
 
 
 };
+
+
+
 
 
 
