@@ -10,7 +10,7 @@ var answerButton4 = document.querySelector("#button4");
 var buttonEl = document.getElementsByClassName("questionBtn");
 
 
-var secondsLeft = 45;
+var secondsLeft = 60;
 var currentQuestion = 0;
 
 
@@ -58,18 +58,27 @@ var quizQuestions = [
         answer4: "Creates a new paragraph",
         correctAnswer: 4,
     },
+    {
+        question: "What does HTML stand for?",
+        answer1: "Hypertext Markup Language",
+        answer2: "Honey Tacos Milk Lettuce",
+        answer3: "Hypertext Money Language",
+        answer4: "Hilary Thompson's Meat Loaf",
+        correctAnswer: 1,
+    },
 ];
 
 console.log(quizQuestions);
+console.log(quizQuestions.length)
 
 function setTime() {
     var timerInterval = setInterval(function () {
         secondsLeft--;
         timeEl.textContent = "Time remaining: " + secondsLeft;
 
-        // if (secondsLeft === 0 || currentQuestion === quizQuestions.length) {
-        //     endGame();
-        // }
+        if (secondsLeft === 0 || currentQuestion === quizQuestions.length) {
+            endGame();
+        }
 
     }, 1000);
 };
@@ -88,7 +97,9 @@ function startGame() {
 };
 
 function endGame() {
-    alert("game is over");
+    secondsLeft = secondsLeft;
+    localStorage.setItem("score", secondsLeft);
+    
 }
 
 
@@ -131,8 +142,6 @@ function checkAnswer() {
     }
     console.log("this is currentQuestion after if/else " + currentQuestion);
     quizGame();
-    
-
 
 };
 
