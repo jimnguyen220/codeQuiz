@@ -67,10 +67,9 @@ function setTime() {
         secondsLeft--;
         timeEl.textContent = "Time remaining: " + secondsLeft;
 
-        if (secondsLeft === 0) {
-            clearInterval(timerInterval);
-            //insert function here to end of game
-        }
+        // if (secondsLeft === 0 || currentQuestion === quizQuestions.length) {
+        //     endGame();
+        // }
 
     }, 1000);
 };
@@ -88,10 +87,13 @@ function startGame() {
 
 };
 
+function endGame() {
+    alert("game is over");
+}
 
 
 function quizGame () {
-    console.log("This is the question I am on " + currentQuestion);
+    // console.log("This is the question I am on " + currentQuestion);
     var quizArray = quizQuestions[currentQuestion];
     questionContent.textContent = quizArray.question;
     answerButton1.textContent = quizArray.answer1;
@@ -109,15 +111,15 @@ function pullData() {
     for (var i = 0; i < buttonEl.length; i++) {
         buttonEl[i].addEventListener('click', checkAnswer);
     };
-    console.log("this is currentQuestion before checkAnswer function " + currentQuestion);
+        // console.log("this is currentQuestion before checkAnswer function " + currentQuestion);
 
     function checkAnswer() {
         var userChoice = this.getAttribute('data-set');
         userChoice = parseInt(userChoice);
-        console.log("this is userChoice " + userChoice);
+        // console.log("this is userChoice " + userChoice);
+        // console.log("this is  the correct answer " + quizQuestions[currentQuestion].correctAnswer);
 
-        console.log("this is currentQuestion before if/else " + currentQuestion);
-
+        // console.log("this is currentQuestion before if/else " + currentQuestion);
 
         if (userChoice === quizQuestions[currentQuestion].correctAnswer){
             currentQuestion++;
@@ -126,8 +128,10 @@ function pullData() {
             secondsLeft = secondsLeft - 10;
             currentQuestion++;
         }
-        
         console.log("this is currentQuestion after if/else " + currentQuestion);
+        quizGame();
+        
+
 
     };
 
