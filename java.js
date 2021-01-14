@@ -7,7 +7,7 @@ var answerButton1 = document.querySelector("#button1");
 var answerButton2 = document.querySelector("#button2");
 var answerButton3 = document.querySelector("#button3");
 var answerButton4 = document.querySelector("#button4");
-
+var buttonEl = document.getElementsByClassName("questionBtn");
 
 
 var secondsLeft = 45;
@@ -99,33 +99,43 @@ function quizGame () {
     answerButton3.textContent = quizArray.answer3;
     answerButton4.textContent = quizArray.answer4;
 
-    nextQuestion();
+    pullData();
 };
 
 
-function nextQuestion() {
+function pullData() {
     
-    //when user selects button element, I want to find which button was selected to determine if i have the correct answer and call quizGame function again
-    answerButton1.addEventListener("click", function(){
-        currentQuestion++;
-        quizGame();
-    })
-    answerButton2.addEventListener("click", function(){
-        currentQuestion++;
-        quizGame();
-    })
-    answerButton3.addEventListener("click", function(){
-        currentQuestion++;
-        quizGame();
-    })
-    answerButton4.addEventListener("click", function(){
-        currentQuestion++;
-        quizGame();
-    })
-    
+
+    for (var i = 0; i < buttonEl.length; i++) {
+        buttonEl[i].addEventListener('click', checkAnswer);
+    };
+    console.log("this is currentQuestion before checkAnswer function " + currentQuestion);
+
+    function checkAnswer() {
+        var userChoice = this.getAttribute('data-set');
+        userChoice = parseInt(userChoice);
+        console.log("this is userChoice " + userChoice);
+
+        console.log("this is currentQuestion before if/else " + currentQuestion);
+
+
+        if (userChoice === quizQuestions[currentQuestion].correctAnswer){
+            currentQuestion++;
+        }
+        else {
+            secondsLeft = secondsLeft - 10;
+            currentQuestion++;
+        }
+        
+        console.log("this is currentQuestion after if/else " + currentQuestion);
+
+    };
+
+
 
 };
 
 
-// this section for interaction with index.html
+
+
 startButtonEl.addEventListener("click", startGame);
