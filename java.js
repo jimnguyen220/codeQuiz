@@ -7,11 +7,16 @@ var answerButton1 = document.querySelector("#button1");
 var answerButton2 = document.querySelector("#button2");
 var answerButton3 = document.querySelector("#button3");
 var answerButton4 = document.querySelector("#button4");
+var resultEl = document.querySelector("#question-result")
 var buttonEl = document.getElementsByClassName("questionBtn");
+var yourScore = localStorage.getItem("score");
+var yourInitials = localStorage.getItem("initials");
+
 
 
 var secondsLeft = 60;
 var currentQuestion = 0;
+
 
 
 
@@ -68,16 +73,17 @@ var quizQuestions = [
     },
 ];
 
-console.log(quizQuestions);
-console.log(quizQuestions.length)
+// console.log(quizQuestions);
+// console.log(quizQuestions.length)
 
 function setTime() {
     var timerInterval = setInterval(function () {
         secondsLeft--;
         timeEl.textContent = "Time remaining: " + secondsLeft;
 
-        if (secondsLeft === 0 || currentQuestion === quizQuestions.length) {
+        if (secondsLeft === 0 || currentQuestion === quizQuestions.length ) {
             clearInterval(timerInterval);
+            localStorage.setItem("score", secondsLeft);
             endGame();
         }
 
@@ -97,9 +103,11 @@ function startGame() {
 
 };
 
-function endGame() {
-    localStorage.setItem("score", secondsLeft);
 
+
+function endGame() {
+    questionContent.textContent = "Your score is " + yourScore + ". Please enter your initials"
+    // window.open("./assets/highscores.html");
 }
 
 
@@ -134,13 +142,15 @@ function checkAnswer() {
     // console.log("this is currentQuestion before if/else " + currentQuestion);
 
     if (userChoice === quizQuestions[currentQuestion].correctAnswer){
+        resultEl.textContent = "Your previous answer was Correct!"
         currentQuestion++;
     }
     else {
         secondsLeft = secondsLeft - 10;
+        resultEl.textContent = "Your previous answer was Wrong!"
         currentQuestion++;
     }
-    console.log("this is currentQuestion after if/else " + currentQuestion);
+    // console.log("this is currentQuestion after if/else " + currentQuestion);
     quizGame();
 
 };
@@ -152,3 +162,4 @@ function checkAnswer() {
 
 
 startButtonEl.addEventListener("click", startGame);
+
