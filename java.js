@@ -77,6 +77,7 @@ function setTime() {
         timeEl.textContent = "Time remaining: " + secondsLeft;
 
         if (secondsLeft === 0 || currentQuestion === quizQuestions.length) {
+            clearInterval(timerInterval);
             endGame();
         }
 
@@ -97,9 +98,8 @@ function startGame() {
 };
 
 function endGame() {
-    secondsLeft = secondsLeft;
     localStorage.setItem("score", secondsLeft);
-    
+
 }
 
 
