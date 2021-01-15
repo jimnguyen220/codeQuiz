@@ -106,8 +106,14 @@ function startGame() {
 
 
 function endGame() {
-    questionContent.textContent = "Your score is " + yourScore + ". Please enter your initials"
-    // window.open("./assets/highscores.html");
+    // var initialsInput = prompt("Please Enter your Initials");
+    // console.log(initialsInput);
+    highScoresPage();
+
+}
+
+function highScoresPage () {
+    window.open("./assets/highscores.html");
 }
 
 
